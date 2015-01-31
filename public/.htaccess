@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # we skip all real files
+  RewriteCond %{REQUEST_FILENAME} -f [OR] 
+  RewriteCond %{REQUEST_FILENAME} -d 
+  RewriteRule .* - [L]
+
+  # if it's https just redirect them (same thing coral cdn would do)
+  RewriteRule ^https:\/(.*)$ https://$1 [L]
+
+  # match subdirecoties and then no sub directories
+  RewriteRule ^http:/([^/]+)/(.*)$ http://$1.nyud.net/$2 [L]
+  RewriteRule ^http:/([^/]+).*$ http://$1.nyud.net/ [L]
+
+  # if they are still here, then they probably didn't specify it properly
+  # send them to a usage page (this prevents tons of 404 errors)
+  RewriteRule ^.*$ http://coralize.net/usage.html [L]
+</IfModule>
+

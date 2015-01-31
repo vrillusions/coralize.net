@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>coralize.net</title>
+
+<!-- Meta Tags -->
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+<meta name="description" content="redirector for coral cdn" />
+<meta name="keywords" content="coral, cache, cdn, redirector, coralize" />
+<meta name="microid" content="b03cf1c7e38ce46a5feffcc498547fd6ee5783f1" />
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css" media="all" type="text/css" />
+
+</head><body>
+
+<div id="main">
+<p>This site is used to aid making coralized urls.  More information about the coral cdn can be found on their website at <a href="http://www.coralcdn.org/">www.coralcdn.org</a>.</p>
+
+<p>This is a redirector site.  It will take the address and forward you to the coralized version of it.  Going to http://coralize.net/http://www.google.com/translate will redirect you to http://www.google.com.nyud.net/translate.  This server only reformats the address, all caching is still handled by Coral.</p>
+
+<ul class="examples">
+	<li class="caption">To use, put the ENTIRE address after http://coralize.net/.  For example:</li>
+	<li>http://coralize.net/http://www.google.com/</li>
+	<li>http://coralize.net/http://www.google.com/mail/</li>
+</ul>
+
+<p>Since ssl connections can not and should not be cached, going to an address like http://coralize.net/https://www.google.com/ will automatically redirect to https://www.google.com/.  This is the same behavior done by Coral.</p>
+
+<p>Credit goes to whoever initially created this site for starting the idea (and motivating me to actually reregister the domain and recreate it)</p>
+</div>
+
+<h1>FAQ</h1>
+<dl>
+	<dt>What information do you track?</dt>
+		<dd>As little as possible.  Since having this hosted at <a href="http://dreamhost.com">dreamhost</a> a minimum of 3 days access logs are kept.  No stats are kept beyond that.  I just test a url myself every so often to make sure it's still working.  You can also contact me at the address at the bottom of the page to let me know if it isn't working.</dd>
+	<dt>Why should I use this?</dt>
+		<dd>If you don't want to figure out how to properly form an address so it goes through the coral cache.  Typically I'll use it if I go to an address that is really slow or down.  I will then just prepend 'http://coralize.net/' to the address.</dd>
+	<dt>Why should I NOT use this?</dt>
+		<dd>Keep in mind this is being run by an individual as a free service.  If sometime down the road I decide to no longer renew the domain all links would then no longer work.  Also when using the coralized address, it uses a mirroring system to make sure the request goes through.  Coralize.net is running of a single server, and creates a single point of failure.</dd>
+	<dt>How do you pay for this service?</dt>
+		<dd>All costs are out of pocket.  The domain registration is the most costly thing at under $10.00 per year.  Traffic usage is very minimal.  In short, the costs to run this are minimal.</dd>
+	<dt>How popular is this?</dt>
+		<dd>See first question.  I don't keep logs so I have no idea.  When testing and I enable logging I do notice it is being used but I don't have any exact numbers.  It may be interesting to have a counter for the number of times it's been used, but that would introduce a little more overhead, even though very minimal.</dd>
+
+</dl>
+
+
+<h1>Changelog</h1>
+<ul>
+	<li>Wed, 18 Jan 2012 21:18:00 -0500 - Since the location where this was previously located has been having reliability issues I moved it to my <a href="http://dreamhost.com">dreamhost</a> acount.  Downside is now three days of logs are kept, at which point they're deleted.</li>
+	<li>Mon, 12 Nov 2007 15:41:12 -0500 - Redirects to port 80 which is now supported.  This should work by more organizations that may be blocking the non-standard port 8080.</li>
+</ul>
+
+<div id="footer">coralize.net is not affiliated with or endorsed by the coral content distribution network.  The webmaster can be reached at vrillusions at gmail (dot) com
+<ul id="validationLinks">
+	<li><a href="http://validator.w3.org/check?uri=referer" title="validate xhtml">Valid XHTML 1.0 Strict</a></li>
+	<li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="valid css">Valid CSS</a></li>
+</ul>
+</div>
+
+</body>
+</html>

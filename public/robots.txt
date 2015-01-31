@@ -1,0 +1,3 @@
+# allowing everyone
+User-agent: *
+Disallow:
