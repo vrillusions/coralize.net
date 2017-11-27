@@ -5,24 +5,29 @@
   RewriteCond %{REQUEST_URI} ^/(stats|failed_auth\.html).*$ [NC]
   RewriteRule .* - [L]
 
-  # we skip all real files
-  RewriteCond %{REQUEST_FILENAME} -f [OR] 
-  RewriteCond %{REQUEST_FILENAME} -d 
-  RewriteRule .* - [L]
+  # Return 410 gone for all other requests
+  RewriteRule .* - [L,R=410]
 
-  # if it's https just redirect them (same thing coral cdn would do)
-  RewriteRule ^https:\/(.*)$ https://$1 [L,R=301]
-
-  # CoralCDN appears to be dead. Instead of redirecting to nyud.net and not
-  # working just redirect directiy to site
-  ## match subdirecoties and then no sub directories
-  #RewriteRule ^http:/([^/]+)/(.*)$ http://$1.nyud.net/$2 [L]
-  #RewriteRule ^http:/([^/]+).*$ http://$1.nyud.net/ [L]
-  RewriteRule ^http:\/(.*)$ http://$1 [L,R=301]
-
-  # if they are still here, then they probably didn't specify it properly
-  # send them to a usage page (this prevents tons of 404 errors)
-  RewriteRule ^.*$ http://coralize.net/usage.html [L]
+  # keep around for reference but nothing here will be reached
+  ## we skip all real files
+  #RewriteCond %{REQUEST_FILENAME} -f [OR] 
+  #RewriteCond %{REQUEST_FILENAME} -d 
+  #RewriteRule .* - [L]
+  #
+  ## return 410 gone for everything elsedd
+  ## if it's https just redirect them (same thing coral cdn would do)
+  #RewriteRule ^https:\/(.*)$ https://$1 [L,R=301]
+  #
+  ## CoralCDN appears to be dead. Instead of redirecting to nyud.net and not
+  ## working just redirect directiy to site
+  ### match subdirecoties and then no sub directories
+  ##RewriteRule ^http:/([^/]+)/(.*)$ http://$1.nyud.net/$2 [L]
+  ##RewriteRule ^http:/([^/]+).*$ http://$1.nyud.net/ [L]
+  #RewriteRule ^http:\/(.*)$ http://$1 [L,R=301]
+  #
+  ## if they are still here, then they probably didn't specify it properly
+  ## send them to a usage page (this prevents tons of 404 errors)
+  #RewriteRule ^.*$ http://coralize.net/usage.html [L]
 </IfModule>
 
 <IfModule mod_expires.c>
