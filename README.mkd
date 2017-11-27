@@ -1,3 +1,11 @@
 # Coralize.net
 
 The entire source for http://coralize.net
+
+## Deprecation timeline
+
+As it appears the corral cdn isn't coming back I'm deprecating coralize.net. Timeline for this process
+
+- **October 6, 2016** - Update redirects so they return a permanent redirect to original site in the hope any search engines will update
+- **November 27, 2017** - All requests to site return `410 Gone` telling search engines this site is gone and remove it from all indexes
+- **January 4, 2019** - Domain registration expires and will not be renewed
